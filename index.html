@@ -3,11 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PRISM | Bilkent CS491</title>
+  <meta name="description" content="PRISM — Pull Request Intelligence for Software Maintenance. A Bilkent University CS491 senior design project.">
+  <title>PRISM | Bilkent University</title>
+  <style>
+    :root {
+      --ink: #202520;
+      --muted: #626c66;
+      --line: #dce2dc;
+      --paper: #fafbf9;
+      --green: #27654e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    a { color: inherit; }
+    a:hover { color: var(--green); }
+    a:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+    .wrap { width: min(920px, calc(100% - 48px)); margin: 0 auto; }
+    header { border-bottom: 1px solid var(--line); background: var(--paper); }
+    .top { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; letter-spacing: -.05em; text-decoration: none; }
+
+    nav { display: flex; gap: 23px; flex-wrap: wrap; }
+    nav a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    nav a:hover { color: var(--ink); }
+    main { padding-bottom: 60px; }
+    .intro { padding: 94px 0 75px; }
+    .label { font-size: 12px; letter-spacing: .065em; font-weight: 650; text-transform: uppercase; color: var(--green); }
+    h1 { font-size: clamp(66px, 12vw, 120px); font-weight: 760; line-height: .98; letter-spacing: -.09em; margin: 17px 0 19px; }
+    .subtitle { font-size: clamp(19px, 3vw, 26px); letter-spacing: -.025em; font-weight: 500; line-height: 1.38; max-width: 670px; margin: 0 0 22px; }
+    .intro p:last-of-type { max-width: 700px; color: var(--muted); margin: 0; }
+    .quick-links { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 27px; }
+    .quick-links a { color: var(--green); font-size: 14px; font-weight: 600; text-underline-offset: 4px; }
+    section { padding: 38px 0 46px; border-top: 1px solid var(--line); }
+    .section-grid { display: grid; grid-template-columns: 200px minmax(0,1fr); gap: 40px; }
+    h2 { font-size: 18px; font-weight: 700; letter-spacing: -.025em; margin: 0; }
+    h3 { font-size: 15px; font-weight: 650; margin: 0 0 5px; }
+    p { margin: 0 0 16px; }
+    .body-text { max-width: 640px; }
+    .body-text p { color: #47534c; }
+    .body-text p:last-child { margin-bottom: 0; }
+    .points { margin: 20px 0 0; padding-left: 20px; color: #47534c; }
+    .points li { padding-left: 3px; margin: 7px 0; }
+    .names { display: grid; grid-template-columns: 1fr; gap: 4px; }
+    .names div { border-bottom: 1px solid var(--line); padding: 10px 0; font-weight: 650; }
+    .support { margin-top: 24px; color: var(--muted); font-size: 14px; }
+    .support strong { color: var(--ink); }
+    .row { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+    .row:first-child { border-top: 1px solid var(--line); }
+    .row small { color: var(--muted); }
+    .row a { color: var(--green); text-underline-offset: 4px; }
+    .subtle { color: var(--muted); font-size: 14px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0 40px; color: var(--muted); font-size: 13px; }
+    .foot { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 36px, 920px); }
+      .top { align-items: flex-start; padding: 20px 0; flex-direction: column; gap: 10px; }
+      nav { gap: 18px; }
+      .intro { padding: 70px 0 65px; }
+      h1 { font-size: clamp(60px, 15vw, 90px); }
+      .section-grid { grid-template-columns: 1fr; gap: 19px; }
+      section { padding: 32px 0 38px; }
+      .names { grid-template-columns: 1fr; }
+      .row { display: block; }
+      .row small { display: block; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
-  <h1>PRISM</h1>
-  <h2>Pull Request Intelligence for Software Maintenance</h2>
-  <p>Bilkent University — CS491 Senior Design Project</p>
+  <header>
+    <div class="wrap top">
+      <a class="logo" href="#top">PRISM</a>
+      <nav aria-label="Site navigation">
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <a href="#reports">Reports</a>
+        <a href="#links">Links</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <div class="intro">
+      <div class="label">Bilkent University / CS491 Senior Design Project</div>
+      <h1>PRISM</h1>
+      <p class="subtitle">Pull Request Intelligence for Software Maintenance</p>
+      <p>PRISM is a proposed code review assistant that helps developers understand how a pull request may affect the rest of a software system — beyond the lines changed in the diff.</p>
+      <div class="quick-links">
+        <a href="https://prismdevtools.com" target="_blank" rel="noopener noreferrer">Project website ↗</a>
+        <a href="https://github.com/prismai-devtools" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+
+    <section id="about" class="section-grid">
+      <h2>About the project</h2>
+      <div class="body-text">
+        <p>A pull request shows what changed, but not necessarily which other components depend on that change. PRISM aims to make those relationships easier to inspect during code review.</p>
+        <p>The proposed system combines change impact analysis, repository history, risk assessment, and AI-assisted review. Its goal is to provide reviewers with structured evidence about potentially affected code, APIs, and tests.</p>
+        <ul class="points">
+          <li>Identify dependencies and potentially affected components.</li>
+          <li>Visualize the impact of a pull request.</li>
+          <li>Highlight changes that may deserve closer review.</li>
+          <li>Provide AI review feedback informed by analysis results.</li>
+        </ul>
+        <p class="subtle" style="margin-top:20px;">Name pronunciation: <strong>PRISM</strong> — /ˈprɪz.əm/ (pronounced like the English word “prism”).</p>
+      </div>
+    </section>
+
+    <section id="team" class="section-grid">
+      <h2>Team</h2>
+      <div>
+        <div class="names">
+          <div>Emine İrem Esendemir</div>
+          <div>Halil Arda Özongun</div>
+          <div>Sude Ergün</div>
+          <div>Işıl Ünveren</div>
+          <div>Yağmur Demirer</div>
+        </div>
+        <p class="support"><strong>Supervisor:</strong> Eray Tüzün<br>Bilkent University, Department of Computer Engineering</p>
+      </div>
+    </section>
+
+    <section id="reports" class="section-grid">
+      <h2>Reports</h2>
+      <div>
+        <!-- When the PDF is ready, upload it to the repository and replace the text below with a link. -->
+        <div class="row">
+          <span>Project Specification Document</span>
+          <small>PDF to be added</small>
+        </div>
+        <p class="subtle" style="margin-top:13px;">Project reports and course deliverables will be made available here as they are published.</p>
+      </div>
+    </section>
+
+    <section id="links" class="section-grid">
+      <h2>Links</h2>
+      <div>
+        <div class="row"><span>PRISM website</span><a href="https://prismdevtools.com" target="_blank" rel="noopener noreferrer">prismdevtools.com ↗</a></div>
+        <div class="row"><span>GitHub organization</span><a href="https://github.com/prismai-devtools" target="_blank" rel="noopener noreferrer">prismai-devtools ↗</a></div>
+        <div class="row"><span>Project page source</span><a href="https://github.com/prismai-devtools/prismai-devtools.github.io" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>PRISM — Bilkent University — CS491</span>
+      <span>2026–2027</span>
+    </div>
+  </footer>
 </body>
 </html>
